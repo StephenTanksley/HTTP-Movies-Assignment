@@ -22,6 +22,7 @@ const MovieUpdate = ({movie, setMovie, history}) => {
                 stars: e.target.value
             })
         } else {
+            //if we're updating anything else, we don't need to specify an individual item, so we can choose [name]:value
             setUpdatedMovie({
                 ...updatedMovie,
                 [e.target.name]: e.target.value
@@ -43,43 +44,43 @@ const MovieUpdate = ({movie, setMovie, history}) => {
     }
 
     return (
+        <div className="update-form">
+        {/* //building out a form to handle changes to a movie. */}
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name="title"
+                    placeholder={title}
+                    value={updatedMovie.title}
+                    onChange={handleChange}
+                    />
 
-        //building out a form to handle changes to a movie.
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                name="title"
-                placeholder={title}
-                value={updatedMovie.title}
-                onChange={handleChange}
-                />
+                <input
+                    type="text"
+                    name="director"
+                    placeholder={director}
+                    value={updatedMovie.director}
+                    onChange={handleChange}
+                    />
 
-            <input
-                type="text"
-                name="director"
-                placeholder={director}
-                value={updatedMovie.director}
-                onChange={handleChange}
-                />
-
-            <input
-                type="text"
-                name="metascore"
-                placeholder={metascore}
-                value={updatedMovie.metascore}
-                onChange={handleChange}
-                />
-            
-            <input
-                type="text"
-                name="stars"
-                placeholder={stars}
-                value={updatedMovie.stars}
-                onChange={handleChange}
-                />
+                <input
+                    type="text"
+                    name="metascore"
+                    placeholder={metascore}
+                    value={updatedMovie.metascore}
+                    onChange={handleChange}
+                    />
                 
-        </form>
-
+                <input
+                    type="text"
+                    name="stars"
+                    placeholder={stars}
+                    value={updatedMovie.stars}
+                    onChange={handleChange}
+                    />
+                    
+            </form>
+        </div>
     )
 
 
